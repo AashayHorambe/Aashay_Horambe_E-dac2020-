@@ -1,0 +1,114 @@
+﻿Assignment number 1
+
+create database assignment1
+show databases;
+show tables;
+use assignment1
+
+1)Create the table Member, Books and Issue without any constraints as mentioned in the schema description above:
+
+	create table member(
+
+	member_id int(5) primary key,
+
+	member_name Varchar(30),
+
+	member_address 	Varchar(50),
+
+	acc_open_date Date,
+	
+Membership_type Varchar(20),
+
+	Penalty_Amount int(7)
+
+	);
+
+
+	create table books(
+
+	Book_No int(7) ,
+	
+Book_Name Varchar(30),
+
+	Author_name Varchar(30),
+
+	Cost int(20),
+
+	Category char(10)
+
+	);
+
+	create table Issue(
+Lib_Issue_Id int(10) ,
+
+	Book_No int(6),
+
+	Member_Id int(5),
+	
+Issue_Date date,
+	
+Return_date date
+
+	);
+
+
+2)View the structure of the tables.
+	desc member;
+	
+desc books;
+
+	desc Issue;
+
+3)Delete/Drop the column Penalty_Amount from Member:
+	alter table member drop column Penalty_Amount;
+	
+desc member;
+
+4)Insert following data in table Member:
+	insert into member values(1,"Richa Sharma","Pune","2005-10-05","Lifetime");
+	insert into member values(2,"Garima Sen","Pune","2020-12-4","Annual");
+
+5)Insert at least 5 records with suitable data and save it.
+ insert into member values(3,"Aashay Horambe","Ratnagiri","2010-10-8","Fulltime");
+ insert into member values(4,"Aghosh Raghraman","Ratnagiri","2014-08-15","Annual");
+ insert into member values(35,"Amit Gade","Jalgaon","2018-02-8","Annual");
+ select * from member;
+
+6)Insert data in Book table as follows:
+	insert into books values(101,"Let us C","Denis Ritchie",450,"System");
+
+	insert into books values(102,"Oracle – Complete Ref","Loni",550,"Database");
+	insert into books values(103,"Mastering SQL","Loni",250,"Database");
+	
+insert into books values(104,"PL SQL-Ref","ScottUrman",750,"Database");
+
+
+7)View the data in the tables using simple SQL query.
+	select * from member;
+	select * from books;
+
+8)Modify the price of book with id 103 to Rs 300 and category to RDBMS:
+	UPDATE books SET Cost=300 WHERE Book_No= 103;        
+
+9)Drop table Issue.
+	drop table Issue;
+
+10)Again Create table Issue and insert following data into Issue table. Note leave the column Return_Date blank:
+
+	create table Issue (
+	Lib_Issue_Id int(10),
+	Book_No int(6),
+	Member_Id int(5),
+	Issue_Date date,
+	Return_date date
+	); 
+
+	insert into Issue values(7001,101,1,'10-12-06',null);
+	insert into Issue values(7002,102,2,'25-12-06',null);
+	insert into Issue values(7003,104,1,'15-01-06',null);
+	insert into Issue values(7004,101,1,'04-07-06',null);
+	insert into Issue values(7005,104,2,'15-09-06',null);
+	insert into Issue values(7006,101,3,'18-02-06',null);
+
+	
+
