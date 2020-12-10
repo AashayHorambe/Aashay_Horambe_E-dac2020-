@@ -1,0 +1,135 @@
+ASSIGNMENT3;
+
+1)create table Department with dept_id(integer),dept_name(varchar(50)).
+
+CREATE DATABASE ASSIGNMENT3;
+USE ASSINMENT3;
+
+CREATE TABLE DEPARTMENT (DEPT_ID INT NOT NULL AUTO_INCREMENT,DEPT_NAME VARCHAR(50) NOT NULL,PRIMARY KEY(DEPT_ID));
+
+DESC DEPARTMENT;
+mysql> desc department;
+
++-----------+-------------+------+-----+---------+----------------+
+| Field     | Type        | Null | Key | Default | Extra          |
++-----------+-------------+------+-----+---------+----------------+
+| DEPT_ID   | int         | NO   | PRI | NULL    | auto_increment |
+| DEPT_NAME | varchar(50) | NO   |     | NULL    |                |
++-----------+-------------+------+-----+---------+----------------+
+2 rows in set (0.09 sec)
+INSERT INTO DEPARTMENT(DEPT_NAME) VALUES('FINANCE'),('TRAINING'),'MARKETING');
+
+mysql> SELECT * FROM DEPARTMENT;
+
++---------+-----------+
+| DEPT_ID | DEPT_NAME |
++---------+-----------+
+|       1 | FINANCE   |
+|       2 | TRANING   |
+|       3 | MARKETING |
++---------+-----------+
+3 rows in set (0.04 sec)
+
+CREATE TABLE EMPLOYEE(EMP_ID INT(3) PRIMARY KEY AUTO_INCREMENT,EMP_NAME V
+ARCHAR(30),DEPT_ID INT(4) ,SALARY INT(5),MANAGER INT(4),FOREIGN KEY(DEPT_ID) REF
+ERENCES DEPARTMENT(DEPT_ID));
+
+mysql> DESC EMPLOYEE;
++----------+-------------+------+-----+---------+----------------+
+| Field    | Type        | Null | Key | Default | Extra          |
++----------+-------------+------+-----+---------+----------------+
+| EMP_ID   | int         | NO   | PRI | NULL    | auto_increment |
+| EMP_NAME | varchar(30) | YES  |     | NULL    |                |
+| DEPT_ID  | int         | YES  | MUL | NULL    |                |
+| SALARY   | int         | YES  |     | NULL    |                |
+| MANAGER  | int         | YES  |     | NULL    |                |
++----------+-------------+------+-----+---------+----------------+
+5 rows in set (0.05 sec)
+
+ INSERT INTO EMPLOYEE VALUES(1,'ARUN,1,8000,4);
+ INSERT INTO EMPLOYEE VALUES(2,'KIRAN',1,7000,1);
+INSERT INTO EMPLOYEE VALUES(3,'SCOTT',1,3000,1);
+INSERT INTO EMPLOYEE VALUES(4,'MAX',1,9000,NULL);
+INSERT INTO EMPLOYEE VALUES(5,'JACK',2,8000,4);
+INSERT INTO EMPLOYEE VALUES(6,'KING',NULL,6000,1);
+
+mysql> SELECT * FROM EMPLOYEE;
++--------+----------+---------+--------+---------+
+| EMP_ID | EMP_NAME | DEPT_ID | SALARY | MANAGER |
++--------+----------+---------+--------+---------+
+|      1 | ARUN     |       1 |   8000 |       4 |
+|      2 | KIRAN    |       1 |   8000 |       4 |
+|      3 | SCOTT    |       1 |   3000 |       1 |
+|      4 | MAX      |       2 |   9000 |    NULL |
+|      5 | JACK     |       2 |   8000 |       4 |
+|      6 | KING     |    NULL |   6000 |       1 |
++--------+----------+---------+--------+---------+
+6 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM EMPLOYEE ORDER BY EMP_NAME;
++--------+----------+---------+--------+---------+
+| EMP_ID | EMP_NAME | DEPT_ID | SALARY | MANAGER |
++--------+----------+---------+--------+---------+
+|      1 | ARUN     |       1 |   8000 |       4 |
+|      5 | JACK     |       2 |   8000 |       4 |
+|      6 | KING     |    NULL |   6000 |       1 |
+|      2 | KIRAN    |       1 |   8000 |       4 |
+|      4 | MAX      |       2 |   9000 |    NULL |
+|      3 | SCOTT    |       1 |   3000 |       1 |
++--------+----------+---------+--------+---------+
+6 rows in set (0.00 sec)
+
+
+mysql> SELECT * FROM EMPLOYEE ORDER BY EMP_NAME DESC;
++--------+----------+---------+--------+---------+
+| EMP_ID | EMP_NAME | DEPT_ID | SALARY | MANAGER |
++--------+----------+---------+--------+---------+
+|      3 | SCOTT    |       1 |   3000 |       1 |
+|      4 | MAX      |       2 |   9000 |    NULL |
+|      2 | KIRAN    |       1 |   8000 |       4 |
+|      6 | KING     |    NULL |   6000 |       1 |
+|      5 | JACK     |       2 |   8000 |       4 |
+|      1 | ARUN     |       1 |   8000 |       4 |
++--------+----------+---------+--------+---------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT *,SUM(SALARY) FROM EMPLOYEE GROUP BY DEPT_ID;
++--------+----------+---------+--------+---------+-------------+
+| EMP_ID | EMP_NAME | DEPT_ID | SALARY | MANAGER | SUM(SALARY) |
++--------+----------+---------+--------+---------+-------------+
+|      6 | KING     |    NULL |   6000 |       1 |        6000 |
+|      1 | ARUN     |       1 |   8000 |       4 |       19000 |
+|      4 | MAX      |       2 |   9000 |    NULL |       17000 |
++--------+----------+---------+--------+---------+-------------+
+3 rows in set (0.05 sec)
+
+mysql> SELECT *,SUM(SALARY) FROM EMPLOYEE GROUP BY DEPT_ID HAVING SUM(SALARY)>17
+000;
++--------+----------+---------+--------+---------+-------------+
+| EMP_ID | EMP_NAME | DEPT_ID | SALARY | MANAGER | SUM(SALARY) |
++--------+----------+---------+--------+---------+-------------+
+|      1 | ARUN     |       1 |   8000 |       4 |       19000 |
++--------+----------+---------+--------+---------+-------------+
+1 row in set (0.06 sec)
+
+mysql> SELECT *,SUM(SALARY) FROM EMPLOYEE GROUP BY DEPT_ID HAVING SUM(SALARY)>18
+000;
++--------+----------+---------+--------+---------+-------------+
+| EMP_ID | EMP_NAME | DEPT_ID | SALARY | MANAGER | SUM(SALARY) |
++--------+----------+---------+--------+---------+-------------+
+|      1 | ARUN     |       1 |   8000 |       4 |       19000 |
++--------+----------+---------+--------+---------+-------------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *,SUM(SALARY) FROM EMPLOYEE GROUP BY DEPT_ID HAVING SUM(SALARY)<20
+000;
++--------+----------+---------+--------+---------+-------------+
+| EMP_ID | EMP_NAME | DEPT_ID | SALARY | MANAGER | SUM(SALARY) |
++--------+----------+---------+--------+---------+-------------+
+|      6 | KING     |    NULL |   6000 |       1 |        6000 |
+|      1 | ARUN     |       1 |   8000 |       4 |       19000 |
+|      4 | MAX      |       2 |   9000 |    NULL |       17000 |
++--------+----------+---------+--------+---------+-------------+
+3 rows in set (0.00 sec)
+
