@@ -1,0 +1,123 @@
+// ASSIGNMENT  NO 1
+//------------------------------------------------------------------------------------------------------------
+//Q1
+function display(id,name ,salary)
+{
+    let basicsallary=10000;
+   let tsalary=basicsallary +salary;
+     return "Class A Employee "+name+" with "+id+ " has total sallary = "+tsalary ;
+   
+}
+
+var a=display(1,"Aashay Horambe",10000);
+console.log(a);
+
+
+//-----------------------------------------------------------------------------------------------------------
+//Q2
+var obj={
+    emp_name:"Aashay Horambe",
+    emp_id:1,
+    emp_salary:10000,
+    emp_address:"Ratnagiri",
+    emp_desgn:"java Developer"
+}
+
+console.log(obj.emp_name);
+
+for(let element in obj)
+{
+    console.log(obj[element]);
+}
+
+//---------------------------------------------------------------------------------------------------
+//Q3
+var arr=[1,5,6.5,"Aashay","aghosh",[10,20,30,40,50],{emp_name:"Aashay",emp_id:1,emp_design:"JAVA DEVELOPER"}];
+
+for(let i=0;i<arr.length;i++)
+{
+  console.log(arr[i]); 
+}
+
+//----------------------------------------------------------------------------------------------------
+//Q4
+function is_integer(val)
+{
+if(!isNaN(val))
+{
+    console.log(val +" IS A NUMBER");
+}
+else{
+    console.log(val +" NOT A NUMBER");
+}
+}
+is_integer("Aashay");
+
+//------------------------------------------------------------------------
+//Q5
+
+var arr=[10,20,30,40,50];
+var sum=0;
+arr.forEach(function(element)
+{
+ sum=sum+arr[element];
+}
+)
+
+//----------------------------------------------------------------------------------------------------
+
+//Q6
+function temperature(celsius)
+
+{ 
+
+   var temp=celsius;
+   var NewTemp= temp*9/5 +32; 
+   var convertTemp=temp+"\xB0C is"+NewTemp+" \xB0F.";
+   console.log(convertTemp);
+
+}
+ 
+temperature(40);
+
+
+//------------------------------------------------------------------------------------------------------------
+//Q7
+function fact(num)
+  {
+   
+    if (num== 0)
+   {
+        return 1;
+    }
+
+    else
+    {
+        return num * fact(num - 1);
+    }
+
+  }
+
+  console.log(fact(5));
+
+  //---------------------------------------------------------------------------------------------
+
+  //Q8
+  function convert_to_Coins(amount){
+    var  tf = amount/25;  
+     amount = amount % 25; 
+     var tn = amount/10; 
+     amount = amount % 10; 
+     var F = amount/5;
+     amount = amount % 5;
+     var t = amount/2;
+     amount = amount % 2;
+     console.log("Rs.25 Coins: "+Math.floor(tf));
+     console.log("Rs.10 Coins: "+Math.floor(tn));
+     console.log("Rs.5 Coins: "+Math.floor(F));
+     console.log("Rs.2 Coins: "+Math.floor(t));
+     console.log("Rs.1 Coins: "+Math.floor(amount));
+}
+
+convert_to_Coins(87);
+ 
