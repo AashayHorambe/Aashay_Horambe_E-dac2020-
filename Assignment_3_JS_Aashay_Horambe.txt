@@ -1,0 +1,154 @@
+1.What is a sparse array?
+
+An array in which most of the elements have the same value
+When the array has more occurrence of zero elements
+A sparse array is an array of data in which many elements have a value of zero. 
+This is in contrast to a dense array, where most of the elements have non-zero values or are “full” of numbers.
+
+2). List different keywords in javascript
+
+abstract	arguments	boolean 	break
+byte	        case	        catch	        char
+const	        continue	debugger	default
+delete	        do	        double	        else
+eval	        false	        final	        finally
+float	        for	        function	goto
+if	        implements	in	        instanceof
+int	        interface	let	        long
+native	        new	        null	        package
+private	        protected	public	        return
+short	        static	        switch	        synchronized
+this	        throw	        throws	        transient
+true	        try	        typeof	        var
+void	        volatile	while	        with
+yield
+
+
+
+3).List and understand importance of different operators in JS
+ a.Arithmetic Operators
+
++ - * / % ++ --
+
+b.Comparison Operators
+
+== === != < > >= <= 
+
+c.Logical Operators
+
+&& || !
+
+d.Assignment Operators
+
+= += -= *=
+
+e.Ternary Operators
+
+:?
+
+f.typeof Operator
+
+  typeof variable;
+
+3.1 Difference between == and === operators in javascript , illustrate with example
+
+a.== operators:-
+
+== in JavaScript is used for comparing two variables, but it ignores the datatype of variable.
+
+eg. var x = 10;
+  document.getElementById("demo").innerHTML = (x == "10");
+
+=>false
+
+
+b.=== operators
+
+=== is used for comparing two variables, but this operator also checks datatype and compares two values.
+
+eg.var x = 10;
+  document.getElementById("demo").innerHTML = (x === "10");
+=> false
+
+
+4.With example illustrate typeof operator in JS
+
+
+document.getElementById("one").innerHTML=typeof 
+"Aashay"+"<br>"+typeof 2;
+
+=> string
+   number
+
+var obj=[10,2,30,31];
+=> object
+
+
+5.With a suitable example explain for loop in javascript
+  
+    var x= [10,20,30,40];
+    var i,loop;
+    loop="";
+    for(i=0;i<x.length;i++){
+       loop += x[i]+" ";
+    }
+   document.getElementById("one").innerHTML=loop;
+
+=> 10 20 30 40
+
+6.With suitable example explain date methods in javascript
+
+var dfun =new Date();
+console.log(dfun.getFullYear());
+console.log(dfun.getDate());
+console.log(dfun.getDay());
+console.log(dfun.getHours());
+console.log(dfun.getMinutes());
+console.log(dfun.getSeconds());
+console.log(dfun.getTime());
+
+7.write a suitable example to illustrate jquery
+
+<script src="jqueri.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("pre").css("color","blue")
+                $("pre").css("border","2px solid red")
+                $("pre").css("background","white")
+            })
+            $(document).ready(function(){
+                $("pre").click(function(){
+                $("pre").css("background","navy")
+                let a=$("pre").html()
+                console.log(a)
+                })
+            })
+            $(document).ready(function(){
+                $("#b1").mouseenter(function(){
+                $("#b1").css("color","black")
+                })
+            })
+            $(document).ready(function(){
+                $("#b1").mouseleave(function(){
+                $("#b1").css("color","")
+                })
+            })
+            $(document).ready(function(){
+                $("body").keypress(function(){
+                $("body").css("background-color","white")
+                })
+            })
+            $(document).ready(function(){
+                $("body").keyup(function(){
+                $("body").css("background-color","red")
+                })
+            })
+            // $(document).ready(function(){
+            //     $(window).scroll(function(){
+            //     alert("you scrolled")
+            //     })
+            // })
+        </script>
+
+
+
